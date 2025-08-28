@@ -2,12 +2,26 @@
 {% block title %}Mis Cultivos{% endblock title %}Mis Cultivos
 {% block content %}
     <h1 class = 'mb-4'>Mis Cultivos</h1>
-    <ul class = 'list-group'> 
-        {% for cultivo in cultivos %}
-            <li class='list-group-item'>{{cultivo}} </li>
-        {% empty %}
-            <li class='list-group-item'>No hay cultivos que mostrar</li>
-        {% endfor %}
-        
-    </ul>
+    <table class="table table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Nombre Cultivo</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for cultivo in cultivos %}
+        <tr>
+        <th scope="row">{{ cultivo.nombre }}</th>
+        <td>{{ cultivo.tipo }}</td>
+        <td>Más Información</td>
+        </tr>
+    {% empty %}
+    <tr>
+        <td class="">No hay información</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock content %}
